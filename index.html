@@ -141,6 +141,35 @@
   .lhl{background:rgba(255,92,26,0.06);border:1px solid rgba(255,92,26,0.2);border-radius:10px;padding:16px 20px;margin:16px 0}
   .lhl p{color:var(--white);font-size:0.9rem;margin:0}
 
+  /* SLIDESHOW */
+  #slideshow{background:var(--dark)}
+  .ssw{margin-top:48px;display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:center}
+  .ssframe{position:relative;background:linear-gradient(160deg,rgba(255,92,26,0.12),rgba(255,92,26,0.02));border:1px solid var(--border);border-radius:36px;padding:30px;display:flex;justify-content:center;align-items:center;min-height:560px;overflow:hidden}
+  .ssframe::before{content:'';position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(ellipse,rgba(255,92,26,0.18) 0%,transparent 70%);pointer-events:none}
+  .ssphone{position:relative;width:280px;aspect-ratio:9/19;background:#000;border:3px solid #2a2a30;border-radius:38px;box-shadow:0 30px 70px rgba(0,0,0,0.5),0 0 0 6px rgba(255,255,255,0.02);overflow:hidden;z-index:1}
+  .ssphone::after{content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);width:100px;height:22px;background:#000;border-radius:14px;z-index:3}
+  .ssimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.6s ease}
+  .ssimg.active{opacity:1}
+  .ssinfo{padding:0}
+  .sscount{font-family:'Syne',sans-serif;font-weight:800;font-size:0.9rem;color:var(--orange);letter-spacing:0.08em;margin-bottom:14px}
+  .sstitle{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.2;letter-spacing:-0.02em;margin-bottom:14px;min-height:2.4em}
+  .ssdesc{font-size:1rem;color:var(--grey);line-height:1.7;margin-bottom:30px;min-height:5em}
+  .ssctrls{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .ssbtn{width:46px;height:46px;border-radius:12px;background:var(--dark2);border:1px solid var(--border);color:var(--white);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;font-family:'DM Sans',sans-serif}
+  .ssbtn:hover{border-color:rgba(255,92,26,0.4);background:rgba(255,92,26,0.08)}
+  .ssbtn.play{width:auto;padding:0 18px;font-weight:600;font-size:0.85rem;gap:8px}
+  .ssdots{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .ssdot{width:28px;height:5px;border-radius:3px;background:var(--dark3);border:none;cursor:pointer;transition:background 0.2s}
+  .ssdot.active{background:var(--orange)}
+  .ssdot:hover{background:var(--orange2)}
+  @media(max-width:900px){
+    .ssw{grid-template-columns:1fr;gap:36px}
+    .ssframe{min-height:520px;padding:24px}
+    .ssphone{width:240px}
+    .sstitle{min-height:auto}
+    .ssdesc{min-height:auto}
+  }
+
   /* CONTACT */
   .cpi{max-width:1100px;margin:0 auto;padding:60px 5vw 80px}
   .cgr{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
@@ -200,6 +229,7 @@
   <div class="nav-logo" onclick="showMain()"><div class="logo-icon">🔧</div>PARTSHUNTER</div>
   <div class="nav-links">
     <a onclick="showMain();goTo('how')">How It Works</a>
+    <a onclick="showMain();goTo('slideshow')">App Tour</a>
     <a onclick="showMain();goTo('feat')">Features</a>
     <a onclick="showMain();goTo('countries')">Countries</a>
     <a onclick="showMain();goTo('dl')">Get App</a>
@@ -210,6 +240,7 @@
 </nav>
 <div class="mob-menu" id="mobMenu">
   <a onclick="showMain();goTo('how');toggleMob()">How It Works</a>
+  <a onclick="showMain();goTo('slideshow');toggleMob()">App Tour</a>
   <a onclick="showMain();goTo('feat');toggleMob()">Features</a>
   <a onclick="showMain();goTo('countries');toggleMob()">Countries</a>
   <a onclick="showMain();goTo('dl');toggleMob()">Get App</a>
@@ -272,6 +303,45 @@
       <div class="sc"><div class="sn">3</div><div class="si">📤</div><div class="st">Submit Private Quotes</div><div class="sd">Send your best quote with images. Your pricing is private — no race to the bottom.</div></div>
       <div class="sc"><div class="sn">4</div><div class="si">🏆</div><div class="st">Win Orders</div><div class="sd">When a buyer accepts your quote, you receive the order details and can arrange fulfillment.</div></div>
       <div class="sc"><div class="sn">5</div><div class="si">📈</div><div class="st">Grow Your Business</div><div class="sd">Build your seller rating, attract repeat buyers, and grow with demand-driven leads — no cold calling required.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="slideshow">
+  <div class="reveal">
+    <div class="lbl">Inside The App</div>
+    <h2 class="ttl">A walkthrough of every step</h2>
+    <p class="sub">Tap through real screens from the Partshunter app — from sign up, to posting a request, to receiving quotes, paying, and tracking delivery.</p>
+  </div>
+  <div class="ssw reveal">
+    <div class="ssframe">
+      <div class="ssphone" id="ssphone">
+        <img class="ssimg active" src="assets/screenshots/01_splash.png" alt="Splash screen">
+        <img class="ssimg" src="assets/screenshots/02_signup.png" alt="Sign up screen">
+        <img class="ssimg" src="assets/screenshots/03_buyer_dashboard.png" alt="Buyer dashboard">
+        <img class="ssimg" src="assets/screenshots/04_request_vehicle.png" alt="Request vehicle details">
+        <img class="ssimg" src="assets/screenshots/05_request_part.png" alt="Request part details">
+        <img class="ssimg" src="assets/screenshots/06_request_photos.png" alt="Add photos to request">
+        <img class="ssimg" src="assets/screenshots/07_quotes.png" alt="Receive quotes">
+        <img class="ssimg" src="assets/screenshots/08_payment.png" alt="Secure payment">
+        <img class="ssimg" src="assets/screenshots/09_tracking.png" alt="Order tracking">
+        <img class="ssimg" src="assets/screenshots/10_seller_alerts.png" alt="Seller alerts">
+        <img class="ssimg" src="assets/screenshots/11_submit_quote.png" alt="Seller submits quote">
+        <img class="ssimg" src="assets/screenshots/12_rider_jobs.png" alt="Rider jobs">
+      </div>
+    </div>
+    <div class="ssinfo">
+      <div class="sscount" id="sscount">STEP 01 / 12</div>
+      <div class="sstitle" id="sstitle">Welcome to Partshunter</div>
+      <div class="ssdesc" id="ssdesc">A clean, branded splash screen welcomes both buyers and sellers as the app opens.</div>
+      <div class="ssctrls">
+        <button class="ssbtn" onclick="ssPrev()" aria-label="Previous">←</button>
+        <button class="ssbtn" onclick="ssNext()" aria-label="Next">→</button>
+        <button class="ssbtn play" onclick="ssToggle()" id="ssplay">⏸ Pause</button>
+      </div>
+      <div class="ssdots" id="ssdots"></div>
     </div>
   </div>
 </section>
@@ -719,7 +789,9 @@
       <div class="citem"><div class="cico">🇬🇧</div><div><div class="clbl">UK Parent Company</div><div class="cval">KAWHUDS GROUP LTD</div></div></div>
       <div class="citem"><div class="cico">🔢</div><div><div class="clbl">UK Company Number</div><div class="cval">17092932</div></div></div>
       <div class="citem"><div class="cico">🇿🇦</div><div><div class="clbl">South Africa Entity</div><div class="cval">KAWHUDS GROUP ENTERPRISE<br><span style="color:var(--grey);font-size:0.85rem">Reg No. 2026/230471/07</span></div></div></div>
-      <div class="citem"><div class="cico">📞</div><div><div class="clbl">Phone / WhatsApp</div><div class="cval">+44 7520 655 949</div></div></div>
+      <div class="citem"><div class="cico">📍</div><div><div class="clbl">South Africa Address</div><div class="cval">7 Westpark Road, Montgomery Park,<br>Johannesburg, Gauteng, South Africa</div></div></div>
+      <div class="citem"><div class="cico">📞</div><div><div class="clbl">Phone / WhatsApp (UK)</div><div class="cval">+44 7520 655 949</div></div></div>
+      <div class="citem"><div class="cico">📞</div><div><div class="clbl">Phone / WhatsApp (South Africa)</div><div class="cval">+27 64 004 7310</div></div></div>
       <div class="citem"><div class="cico">🌐</div><div><div class="clbl">Website</div><div class="cval">www.partshunter.co.uk</div></div></div>
     </div>
 
@@ -747,7 +819,7 @@
           <div class="oflag">🇿🇦</div>
           <div class="ocname">South Africa</div>
           <div class="orole">KAWHUDS GROUP ENTERPRISE</div>
-          <div class="oaddr">Enterprise No. 2026/230471/07<br>South Africa<br>✉ support@partshunter.co.uk</div>
+          <div class="oaddr">Enterprise No. 2026/230471/07<br>7 Westpark Road, Montgomery Park,<br>Johannesburg, Gauteng, South Africa<br>📞 +27 64 004 7310<br>✉ support@partshunter.co.uk</div>
         </div>
         <div class="oitem">
           <div class="oflag">🇺🇬</div>
@@ -849,6 +921,51 @@
   function toggleMob(){document.getElementById('mobMenu').classList.toggle('open')}
   const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  /* SLIDESHOW */
+  const ssSlides=[
+    {t:'Welcome to Partshunter',d:'A clean, branded splash screen welcomes both buyers and sellers as the app opens.'},
+    {t:'Quick Sign Up',d:'New users create an account in seconds — choose a buyer or seller role and verify with a phone number or email.'},
+    {t:'Buyer Dashboard',d:'A unified hub showing recent requests, live quotes, ongoing orders, and quick actions to post a new part request.'},
+    {t:'Tell Us Your Vehicle',d:'Enter make, model, year, and engine details so sellers can match the exact part to your vehicle.'},
+    {t:'Describe The Part',d:'Specify the part you need, condition preference (new, used, OEM, aftermarket) and any extra notes for sellers.'},
+    {t:'Add Photos',d:'Snap or upload photos of the part or area on the vehicle. Sellers can visually confirm fitment, reducing wrong-part errors.'},
+    {t:'Receive Live Quotes',d:'Verified sellers respond within minutes with private quotes, photos and condition details — compare them side-by-side.'},
+    {t:'Secure In-App Payment',d:'Choose delivery (pay upfront) or collection (pay at pickup). Payments are processed securely with full transparency.'},
+    {t:'Track Your Order',d:'Once paid, follow your order from the seller to your door with real-time status updates and estimated arrival.'},
+    {t:'Seller Alerts',d:'On the seller side, instant push notifications announce nearby buyer requests that match the seller\'s inventory.'},
+    {t:'Submit A Quote',d:'Sellers respond with their best price, photos and condition info — quotes are private so there\'s no race to the bottom.'},
+    {t:'Rider Jobs',d:'Delivery riders see available jobs, accept pickups, and earn — closing the loop on fast, last-mile fulfillment.'}
+  ];
+  let ssIdx=0,ssTimer=null,ssPlaying=true;
+  const ssImgs=document.querySelectorAll('.ssimg');
+  const ssDotsWrap=document.getElementById('ssdots');
+  if(ssDotsWrap){
+    ssSlides.forEach((_,i)=>{
+      const b=document.createElement('button');
+      b.className='ssdot'+(i===0?' active':'');
+      b.setAttribute('aria-label','Go to slide '+(i+1));
+      b.onclick=()=>ssGo(i);
+      ssDotsWrap.appendChild(b);
+    });
+  }
+  function ssRender(){
+    ssImgs.forEach((el,i)=>el.classList.toggle('active',i===ssIdx));
+    document.querySelectorAll('.ssdot').forEach((el,i)=>el.classList.toggle('active',i===ssIdx));
+    const c=document.getElementById('sscount');
+    const t=document.getElementById('sstitle');
+    const d=document.getElementById('ssdesc');
+    if(c)c.textContent='STEP '+String(ssIdx+1).padStart(2,'0')+' / '+String(ssSlides.length).padStart(2,'0');
+    if(t)t.textContent=ssSlides[ssIdx].t;
+    if(d)d.textContent=ssSlides[ssIdx].d;
+  }
+  function ssGo(i){ssIdx=(i+ssSlides.length)%ssSlides.length;ssRender()}
+  function ssNext(){ssGo(ssIdx+1)}
+  function ssPrev(){ssGo(ssIdx-1)}
+  function ssStart(){ssTimer=setInterval(ssNext,3500);ssPlaying=true;const p=document.getElementById('ssplay');if(p)p.textContent='⏸ Pause'}
+  function ssStop(){if(ssTimer){clearInterval(ssTimer);ssTimer=null}ssPlaying=false;const p=document.getElementById('ssplay');if(p)p.textContent='▶ Play'}
+  function ssToggle(){ssPlaying?ssStop():ssStart()}
+  if(ssImgs.length){ssRender();ssStart()}
 </script>
 </body>
 </html>
