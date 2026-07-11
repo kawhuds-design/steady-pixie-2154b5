@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Your Account – Partshunter</title>
+<meta name="description" content="Request deletion of your Parts Hunter account and personal data.">
+<style>
+  :root { --blue:#2563eb; --slate:#334155; --dark:#0f172a; --light:#f8fafc; --border:#e2e8f0; --red:#b91c1c; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--slate); background:var(--light); line-height:1.7; }
+  header { background:var(--blue); color:#fff; padding:32px 24px; }
+  header .wrap, main { max-width:640px; margin:0 auto; }
+  header a.home { color:#bfdbfe; text-decoration:none; font-size:14px; }
+  header a.home:hover { color:#fff; }
+  header h1 { font-size:26px; margin-top:10px; }
+  main { padding:32px 24px 64px; }
+  .card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:24px; margin-top:16px; }
+  h2 { font-size:17px; color:var(--dark); margin-bottom:8px; }
+  p { margin-bottom:12px; }
+  ul { padding-left:22px; margin-bottom:12px; }
+  li { margin-bottom:6px; }
+  a { color:var(--blue); }
+  label { display:block; font-weight:600; color:var(--dark); margin-bottom:6px; font-size:14px; }
+  input[type=email] { width:100%; padding:13px 14px; font-size:16px; border:1px solid var(--border); border-radius:10px; margin-bottom:14px; }
+  input[type=email]:focus { outline:2px solid var(--blue); border-color:var(--blue); }
+  button { width:100%; padding:14px; font-size:16px; font-weight:600; color:#fff; background:var(--red); border:none; border-radius:10px; cursor:pointer; }
+  button:hover { background:#991b1b; }
+  button:disabled { background:#cbd5e1; cursor:not-allowed; }
+  .notice { background:#fff7ed; border:1px solid #fed7aa; border-radius:10px; padding:14px 16px; font-size:14px; margin-bottom:16px; }
+  #success { display:none; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:24px; margin-top:16px; }
+  #success h2 { color:#166534; }
+  #error { display:none; color:var(--red); font-size:14px; margin-top:10px; }
+  footer { border-top:1px solid var(--border); padding:24px; text-align:center; font-size:13px; color:#64748b; background:#fff; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="home" href="/">&#8592; Back to partshunter.co.uk</a>
+    <h1>Delete your Parts Hunter account</h1>
+  </div>
+</header>
+<main>
+  <div class="card" id="form-card">
+    <p>Use this page to request deletion of your Parts Hunter account and personal data — even if you no longer have the app installed. If you still have the app, you can also delete your account instantly in <strong>Settings &rarr; Delete account</strong>.</p>
+
+    <div class="notice">
+      <strong>What gets deleted:</strong> your name, email address, phone number, password, and profile photo, and your account is permanently deactivated.<br><br>
+      <strong>What we keep:</strong> completed order and payment records in anonymized form (no longer linked to you), as required for tax, accounting, and dispute-resolution obligations. See our <a href="/privacy">privacy policy</a> for details.
+    </div>
+
+    <form id="delete-form">
+      <label for="email">Email address on your account</label>
+      <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+      <button type="submit" id="submit-btn">Request account deletion</button>
+      <p id="error"></p>
+    </form>
+  </div>
+
+  <div id="success">
+    <h2>Request received</h2>
+    <p>If that email address matches a Parts Hunter account, your deletion request has been logged and will be reviewed and processed within 30 days. You don't need to do anything else.</p>
+    <p>Questions in the meantime? Contact <a href="mailto:support@partshunter.co.uk">support@partshunter.co.uk</a>.</p>
+  </div>
+</main>
+<footer>&copy; 2026 KAWHUDS GROUP LTD &nbsp;•&nbsp; <a href="/">Home</a> &nbsp;•&nbsp; <a href="/privacy">Privacy policy</a></footer>
+
+<script>
+  var API_URL = 'https://parts-hunter.vercel.app/api/account/request-deletion';
+  document.getElementById('delete-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = document.getElementById('submit-btn');
+    var errEl = document.getElementById('error');
+    var email = document.getElementById('email').value.trim();
+    errEl.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Request failed');
+        return res.json();
+      })
+      .then(function () {
+        document.getElementById('form-card').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+        window.scrollTo(0, 0);
+      })
+      .catch(function () {
+        errEl.textContent = 'Something went wrong submitting your request. Please try again, or email support@partshunter.co.uk with the subject "Account deletion".';
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Request account deletion';
+      });
+  });
+</script>
+</body>
+</html>
