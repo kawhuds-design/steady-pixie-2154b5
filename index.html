@@ -332,15 +332,64 @@
     <h2 class="ttl">Where we operate</h2>
     <p class="sub" style="margin:16px auto 0">Available to buyers and sellers worldwide — with dedicated regional support teams in:</p>
   </div>
-  <div class="cgrid reveal">
-    <div class="cc"><div class="cf">🇬🇧</div><div class="cn">United Kingdom</div><div class="cs">Head Office</div></div>
-    <div class="cc"><div class="cf">🇿🇦</div><div class="cn">South Africa</div><div class="cs">Active</div></div>
-    <div class="cc"><div class="cf">🇺🇬</div><div class="cn">Uganda</div><div class="cs">Active</div></div>
-    <div class="cc"><div class="cf">🇰🇪</div><div class="cn">Kenya</div><div class="cs">Active</div></div>
-    <div class="cc"><div class="cf">🇹🇿</div><div class="cn">Tanzania</div><div class="cs">Active</div></div>
-    <div class="cc"><div class="cf">🇦🇪</div><div class="cn">United Arab Emirates</div><div class="cs">Active</div></div>
+  <section class="ph-global-coverage" aria-label="Global coverage">
+  <style>
+    .ph-global-coverage { text-align: center; padding: 4rem 1rem 3rem; }
+    .ph-global-coverage .globe-wrap { width: 280px; height: 280px; margin: 0 auto 2rem; position: relative; }
+    .ph-global-coverage svg.globe { width: 100%; height: 100%; overflow: visible; }
+    .ph-global-coverage .grid-line { fill: none; stroke: rgba(255,255,255,0.14); stroke-width: 1; transform-origin: center; animation: ph-spin 26s linear infinite; }
+    .ph-global-coverage .grid-line:nth-child(2) { animation-duration: 26s; }
+    .ph-global-coverage .grid-line:nth-child(3) { animation-duration: 26s; animation-direction: reverse; }
+    .ph-global-coverage .pin-dot { fill: #f97316; }
+    .ph-global-coverage .pin-ring { fill: none; stroke: #f97316; stroke-width: 2; transform-origin: center; animation: ph-pulse 2.6s ease-out infinite; }
+    .ph-global-coverage .pin-1 { animation-delay: 0s; }
+    .ph-global-coverage .pin-2 { animation-delay: 0.4s; }
+    .ph-global-coverage .pin-3 { animation-delay: 0.8s; }
+    .ph-global-coverage .pin-4 { animation-delay: 1.2s; }
+    .ph-global-coverage .pin-5 { animation-delay: 1.6s; }
+    .ph-global-coverage .pin-6 { animation-delay: 2s; }
+    .ph-global-coverage h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 0.75rem; letter-spacing: -0.03em; }
+    .ph-global-coverage p.gc-sub { color: #94a3b8; font-size: 1.05rem; margin: 0; }
+    @keyframes ph-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes ph-pulse {
+      0%   { r: 4; opacity: 0.8; }
+      100% { r: 26; opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ph-global-coverage .grid-line, .ph-global-coverage .pin-ring { animation: none; }
+    }
+  </style>
+
+  <div class="globe-wrap">
+    <svg class="globe" viewBox="0 0 280 280">
+      <circle cx="140" cy="140" r="115" class="grid-line" style="animation: none;" />
+      <ellipse cx="140" cy="140" rx="78" ry="115" class="grid-line" />
+      <ellipse cx="140" cy="140" rx="40" ry="115" class="grid-line" />
+      <ellipse cx="140" cy="140" rx="115" ry="45" class="grid-line" style="animation: none;" />
+
+      <circle cx="122" cy="90" r="4" class="pin-dot" />
+      <circle cx="122" cy="90" r="4" class="pin-ring pin-1" />
+
+      <circle cx="172" cy="130" r="4" class="pin-dot" />
+      <circle cx="172" cy="130" r="4" class="pin-ring pin-2" />
+
+      <circle cx="140" cy="178" r="4" class="pin-dot" />
+      <circle cx="140" cy="178" r="4" class="pin-ring pin-3" />
+
+      <circle cx="152" cy="172" r="4" class="pin-dot" />
+      <circle cx="152" cy="172" r="4" class="pin-ring pin-4" />
+
+      <circle cx="145" cy="192" r="4" class="pin-dot" />
+      <circle cx="145" cy="192" r="4" class="pin-ring pin-5" />
+
+      <circle cx="135" cy="215" r="4" class="pin-dot" />
+      <circle cx="135" cy="215" r="4" class="pin-ring pin-6" />
+    </svg>
   </div>
-  <p class="sub reveal" style="margin:32px auto 0;text-align:center">...and growing. Wherever you are, Partshunter connects you with verified sellers.</p>
+
+  <h2>Global coverage</h2>
+  <p class="gc-sub">Full worldwide rollout coming soon</p>
+</section>
 </section>
 
 <section id="dl">
