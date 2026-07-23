@@ -276,6 +276,142 @@
   </div>
 </section>
 
+<section class="ph-showcase" aria-label="See the app in action">
+  <style>
+    .ph-showcase { background: #050505; padding: 4.5rem 1.5rem; text-align: center; }
+    .ph-showcase .eyebrow { color: #f97316; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.75rem; }
+    .ph-showcase h2 { color: #f5f5f5; font-size: clamp(2rem, 4.5vw, 3rem); margin: 0 0 0.75rem; font-weight: 800; letter-spacing: 0.01em; }
+    .ph-showcase .sub { color: #94a3b8; font-size: 1.05rem; max-width: 640px; margin: 0 auto 3rem; }
+
+    .ph-showcase .platforms { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 720px) { .ph-showcase .platforms { grid-template-columns: 1fr; gap: 3.5rem; } }
+
+    .ph-showcase .platform-label { display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #f5f5f5; font-size: 1.1rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .ph-showcase .platform-icon { font-size: 1.3rem; }
+
+    .ph-showcase .carousel { position: relative; }
+    .ph-showcase .phone-frame { position: relative; width: 240px; height: 500px; margin: 0 auto; background: #18181b; border-radius: 32px; border: 2px solid #2a2a2e; box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset; padding: 10px; }
+    .ph-showcase .phone-notch { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 70px; height: 18px; background: #18181b; border-radius: 0 0 12px 12px; z-index: 2; }
+    .ph-showcase .screen { position: relative; width: 100%; height: 100%; border-radius: 22px; overflow: hidden; background: #000; }
+    .ph-showcase .screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
+    .ph-showcase .screen img.active { opacity: 1; }
+
+    .ph-showcase .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.25rem; }
+    .ph-showcase .arrow-btn { background: none; border: 1px solid #2a2a2e; color: #94a3b8; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; }
+    .ph-showcase .arrow-btn:hover { border-color: #f97316; color: #f97316; }
+    .ph-showcase .dots { display: flex; gap: 6px; }
+    .ph-showcase .dot { width: 6px; height: 6px; border-radius: 50%; background: #2a2a2e; border: none; cursor: pointer; padding: 0; transition: background 0.2s, width 0.2s; }
+    .ph-showcase .dot.active { background: #f97316; width: 18px; border-radius: 3px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ph-showcase .screen img { transition: none; }
+    }
+  </style>
+
+  <p class="eyebrow">See it in action</p>
+  <h2>Real screens. Real marketplace.</h2>
+  <p class="sub">A look at Partshunter running end to end — from posting a request to live delivery tracking.</p>
+
+  <div class="platforms">
+
+    <div class="platform-col">
+      <div class="platform-label"><span class="platform-icon">🤖</span> Android</div>
+      <div class="carousel" data-carousel="android">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="screen">
+            <img src="assets/screenshots/android/01_buyer_dashboard.jpg" alt="Buyer dashboard" class="active">
+            <img src="assets/screenshots/android/02_sign_in.jpg" alt="Sign in screen">
+            <img src="assets/screenshots/android/03_seller_hub.jpg" alt="Seller hub">
+            <img src="assets/screenshots/android/04_checkout_order.jpg" alt="Checkout order summary">
+            <img src="assets/screenshots/android/05_checkout_payment.jpg" alt="Checkout payment selection">
+            <img src="assets/screenshots/android/06_order_tracking_buyer.jpg" alt="Live delivery tracking">
+            <img src="assets/screenshots/android/07_rider_accept_task.jpg" alt="Rider task acceptance">
+            <img src="assets/screenshots/android/08_order_tracking_rider.jpg" alt="Rider en route tracking">
+            <img src="assets/screenshots/android/09_live_chat.jpg" alt="In-app order chat">
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="arrow-btn" data-action="prev" aria-label="Previous screen">‹</button>
+          <div class="dots"></div>
+          <button class="arrow-btn" data-action="next" aria-label="Next screen">›</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="platform-col">
+      <div class="platform-label"><span class="platform-icon">🍎</span> iOS</div>
+      <div class="carousel" data-carousel="ios">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="screen">
+            <img src="assets/screenshots/ios/01_buyer_dashboard.jpg" alt="Buyer dashboard" class="active">
+            <img src="assets/screenshots/ios/02_sign_in.jpg" alt="Sign in screen">
+            <img src="assets/screenshots/ios/03_seller_hub.jpg" alt="Seller hub">
+            <img src="assets/screenshots/ios/04_checkout_order.jpg" alt="Checkout order summary">
+            <img src="assets/screenshots/ios/05_checkout_payment.jpg" alt="Checkout payment selection">
+            <img src="assets/screenshots/ios/06_order_tracking_buyer.jpg" alt="Live delivery tracking">
+            <img src="assets/screenshots/ios/07_rider_accept_task.jpg" alt="Rider task acceptance">
+            <img src="assets/screenshots/ios/08_order_tracking_rider.jpg" alt="Rider en route tracking">
+            <img src="assets/screenshots/ios/09_live_chat.jpg" alt="In-app order chat">
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="arrow-btn" data-action="prev" aria-label="Previous screen">‹</button>
+          <div class="dots"></div>
+          <button class="arrow-btn" data-action="next" aria-label="Next screen">›</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      function initCarousel(root) {
+        var images = root.querySelectorAll('.screen img');
+        var dotsWrap = root.querySelector('.dots');
+        var current = 0;
+        var timer = null;
+
+        images.forEach(function (_, i) {
+          var dot = document.createElement('button');
+          dot.className = 'dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Go to screen ' + (i + 1));
+          dot.addEventListener('click', function () { goTo(i); resetTimer(); });
+          dotsWrap.appendChild(dot);
+        });
+        var dots = root.querySelectorAll('.dot');
+
+        function goTo(index) {
+          images[current].classList.remove('active');
+          dots[current].classList.remove('active');
+          current = (index + images.length) % images.length;
+          images[current].classList.add('active');
+          dots[current].classList.add('active');
+        }
+
+        function startTimer() {
+          timer = setInterval(function () { goTo(current + 1); }, 4000);
+        }
+        function resetTimer() {
+          clearInterval(timer);
+          startTimer();
+        }
+
+        root.querySelector('[data-action="prev"]').addEventListener('click', function () { goTo(current - 1); resetTimer(); });
+        root.querySelector('[data-action="next"]').addEventListener('click', function () { goTo(current + 1); resetTimer(); });
+        root.addEventListener('mouseenter', function () { clearInterval(timer); });
+        root.addEventListener('mouseleave', startTimer);
+
+        startTimer();
+      }
+
+      document.querySelectorAll('[data-carousel]').forEach(initCarousel);
+    })();
+  </script>
+</section>
+
 <div class="divider"></div>
 
 <section id="feat">
