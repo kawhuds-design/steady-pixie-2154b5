@@ -111,8 +111,8 @@
   .cs{font-size:0.78rem;color:var(--orange);margin-top:5px;font-weight:600}
 
   /* DOWNLOAD */
-  #dl{background:linear-gradient(135deg,#1a0e08 0%,var(--dark) 100%);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
-  #dl::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(255,92,26,0.15) 0%,transparent 70%);pointer-events:none}
+  #get-app{background:linear-gradient(135deg,#1a0e08 0%,var(--dark) 100%);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+  #get-app::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(255,92,26,0.15) 0%,transparent 70%);pointer-events:none}
   .dli{position:relative;z-index:1}
   .abts{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px}
   .abt{background:var(--dark3);border:1.5px solid var(--border);border-radius:14px;padding:14px 28px;display:flex;align-items:center;gap:14px;transition:all 0.3s;cursor:pointer}
@@ -412,6 +412,121 @@
   </script>
 </section>
 
+<section class="ph-join" aria-label="Become a seller or rider">
+  <style>
+    .ph-join { background: #050505; padding: 4.5rem 1.5rem; text-align: center; }
+    .ph-join .eyebrow { color: #f97316; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 0.75rem; }
+    .ph-join h2 { color: #f5f5f5; font-size: clamp(2rem, 4.5vw, 3rem); margin: 0 0 0.75rem; font-weight: 800; }
+    .ph-join .sub { color: #94a3b8; font-size: 1.05rem; max-width: 620px; margin: 0 auto 3rem; }
+
+    .ph-join .join-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 960px; margin: 0 auto; }
+    @media (max-width: 720px) { .ph-join .join-grid { grid-template-columns: 1fr; } }
+
+    .ph-join .join-card { position: relative; background: #121214; border-radius: 20px; padding: 2.5rem 2rem; text-align: left; overflow: hidden; border: 1px solid #232326; }
+    .ph-join .card-glow { position: absolute; inset: -1px; border-radius: 20px; border: 1px solid #f97316; opacity: 0.35; animation: ph-breathe 3s ease-in-out infinite; pointer-events: none; }
+    @keyframes ph-breathe { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.55; } }
+
+    .ph-join .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+    .ph-join .stat-row { display: flex; align-items: baseline; gap: 0.25rem; margin-bottom: 0.25rem; }
+    .ph-join .stat-number { color: #f97316; font-size: 2.75rem; font-weight: 800; line-height: 1; }
+    .ph-join .stat-suffix { color: #f97316; font-size: 1.75rem; font-weight: 800; }
+    .ph-join .stat-label { color: #94a3b8; font-size: 0.85rem; margin: 0 0 1.5rem; }
+
+    .ph-join .route-track { position: relative; height: 40px; margin-bottom: 1rem; }
+    .ph-join .route-line { position: absolute; top: 50%; left: 0; right: 0; height: 2px; background: repeating-linear-gradient(90deg, #2a2a2e 0 8px, transparent 8px 14px); transform: translateY(-50%); }
+    .ph-join .route-dot { position: absolute; top: 50%; width: 14px; height: 14px; background: #f97316; border-radius: 50%; transform: translateY(-50%); box-shadow: 0 0 8px rgba(249,115,22,0.6); animation: ph-glide 3.5s ease-in-out infinite; }
+    @keyframes ph-glide { 0% { left: 0%; } 50% { left: calc(100% - 14px); } 100% { left: 0%; } }
+
+    .ph-join h3 { color: #f5f5f5; font-size: 1.4rem; margin: 0 0 1rem; }
+    .ph-join ul { list-style: none; padding: 0; margin: 0 0 1.75rem; }
+    .ph-join li { color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; padding-left: 1.3rem; position: relative; margin-bottom: 0.6rem; }
+    .ph-join li::before { content: "✓"; color: #f97316; position: absolute; left: 0; font-weight: 700; }
+
+    .ph-join .join-cta { display: inline-block; background: #f97316; color: #0a0a0a; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 10px; text-decoration: none; font-size: 0.95rem; transition: background 0.2s; }
+    .ph-join .join-cta:hover { background: #fb923c; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ph-join .card-glow, .ph-join .route-dot { animation: none; opacity: 0.4; }
+    }
+  </style>
+
+  <p class="eyebrow">Grow with Partshunter</p>
+  <h2>Two ways to earn, on your own schedule</h2>
+  <p class="sub">Whether you're moving inventory or moving parts across town, Partshunter turns it into real income.</p>
+
+  <div class="join-grid">
+
+    <div class="join-card" data-card="seller">
+      <div class="card-glow"></div>
+      <div class="card-icon">🏪</div>
+      <div class="stat-row"><span class="stat-number" data-target="80">0</span><span class="stat-suffix">%</span></div>
+      <p class="stat-label">of every sale goes straight to you</p>
+      <h3>Become a Seller</h3>
+      <ul>
+        <li>Keep 80% of every sale — a fully transparent 20% platform fee, nothing hidden</li>
+        <li>Real-time requests from buyers near you, no cold calling required</li>
+        <li>Private quotes — your price stays yours, competitors never see it</li>
+        <li>Build a rating buyers trust and grow repeat business</li>
+      </ul>
+      <a href="#get-app" class="join-cta">Start selling →</a>
+    </div>
+
+    <div class="join-card" data-card="rider">
+      <div class="card-glow"></div>
+      <div class="card-icon">🏍️</div>
+      <div class="route-track">
+        <div class="route-line"></div>
+        <div class="route-dot"></div>
+      </div>
+      <p class="stat-label">Live tracked, every pickup and drop-off</p>
+      <h3>Become a Rider</h3>
+      <ul>
+        <li>Go online whenever it suits you — fully flexible hours</li>
+        <li>Earn per delivery, tracked transparently in the app</li>
+        <li>Live turn-by-turn tracking guides every pickup and drop-off</li>
+        <li>Use your own vehicle to fulfil orders in your area</li>
+      </ul>
+      <a href="#get-app" class="join-cta">Start riding →</a>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      var el = document.querySelector('.ph-join [data-target]');
+      if (!el) return;
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var done = false;
+
+      function animate() {
+        if (done) return;
+        done = true;
+        var start = null;
+        var duration = 1200;
+        function step(ts) {
+          if (!start) start = ts;
+          var progress = Math.min((ts - start) / duration, 1);
+          el.textContent = Math.round(progress * target);
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) animate();
+          });
+        }, { threshold: 0.4 });
+        observer.observe(el);
+      } else {
+        animate();
+      }
+    })();
+  </script>
+</section>
+
 <div class="divider"></div>
 
 <section id="feat">
@@ -528,7 +643,7 @@
 </section>
 </section>
 
-<section id="dl">
+<section id="get-app">
   <div class="dli reveal" style="text-align:center">
     <div class="lbl">Get The App</div>
     <h2 class="ttl" style="max-width:600px;margin:0 auto">Get the App and Start Finding Parts Today</h2>
